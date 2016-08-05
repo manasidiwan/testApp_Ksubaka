@@ -1,0 +1,41 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.manasidiwan.android.testapp">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".UI.Home.Impl.HomeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/PrefStyle">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".UI.Detail.Impl.DetailActivity"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".UI.Home.Impl.HomeActivity"
+            android:theme="@style/PrefStyle">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".UI.Home.Impl.HomeActivity" />
+        </activity>
+
+        <meta-data
+            android:name = "roboguice.modules"
+            android:value="com.manasidiwan.android.testapp.Modal.Common.RoboConfigModule"
+            />
+        <meta-data
+            android:name="roboguice.annotations.packages"
+            android:value="com.manasidiwan.android.testapp"/>
+
+    </application>
+
+</manifest>
